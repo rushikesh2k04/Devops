@@ -1,4 +1,4 @@
-name: Python package
+name: Build Python Program
 
 on: [push]
 
@@ -12,14 +12,16 @@ jobs:
       - uses: actions/checkout@v4
       - name: Set up Python 
         uses: actions/setup-python@v5
-        with:
-          - name: Display Python version
-            run: python -c "import sys; print(sys.version)"
-            python-version: "3.13"
-          - name: Install dependencies and build
-            run: | 
+        with: 
+          python-version: "3.13"
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+            
+      - name: Install dependencies and build
+        run: | 
              python -m pip install --upgrade pip
              pip install -r requirements.txt
+             python new.py
       # You can test your matrix by printing the current Python version
           
          
